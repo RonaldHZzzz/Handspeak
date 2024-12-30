@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
 </head>
 <body>
+    <header>
+        <img src="HANDSPEAK mockup.png" alt="Mockup de HaandSpeak" style="width:100%; max-width:300px; display:block; margin:auto;">
+    </header>
     <h1>HaandSpeak</h1>
     <p>
         <strong>HaandSpeak</strong> es una aplicación diseñada para facilitar la comunicación entre personas sordas o 
