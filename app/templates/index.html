@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="dist/css/component-custom-switch.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='layout.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="cuadrado">
+            <label id="resultado_deteccion"></label>
+            <audio id="audio_player" src="" hidden></audio>
+
+        </div>
+        <div class="dropdown custom-dropdown">
+            <button type="button" class="opciones">Opciones</button>
+            <div class="dropdown-content">
+              <a href=""></a>
+              <a href="">Cambiar fondo</a>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch">
+                <label class="custom-control-label" for="customSwitch"></label>
+              </div>
+            </div>
+        </div>
+       
+        <div class="Refrescar">
+            <button type="button"  onclick="refreshCamera()">Refrescar</button>
+        </div>
+        <div class="Apagar">
+            <button id="toggle_button" onclick="toggleCamera()">Apagar Cámara</button>
+        </div>
+            <div class="Bocina">
+                <img id="altavoz" src="\static\image\bocina.png" alt="Altavoz">
+            </div>
+        
+
+    </div>
+    <div class="imagen">
+        <img id="video_feed" src="{{ url_for('video') }}">
+    </div>
+    
+
+    
+
+            
+
+    
+        <script src="{{ url_for('static', filename='pantalla.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+
+        <script>
+            var videoUrl = "{{ url_for('video') }}";
+        </script>
+        <script>
+            var socket = io();
+            var ultimoAudio = null;
+            var imgAltavoz = document.getElementById('altavoz'); // Obtén la referencia de la imagen del altavoz
+        
+            socket.on('update_letras', function(data) {
+                document.getElementById('resultado_deteccion').textContent = data.letras;
+            });
+        
+            socket.on('update_audio', function(data) {
+                ultimoAudio = new Audio('/' + data.audio_file);
+                imgAltavoz.src = '/static/image/bocina_roja.png'; // Cambia a la imagen roja
+        
+                ultimoAudio.play().then(() => {
+                    ultimoAudio.onended = function() {
+                        imgAltavoz.src = '/static/image/bocina.png'; // Vuelve a la imagen gris cuando el audio termine
+                    };
+                }).catch(e => {
+                    console.error('Error al reproducir el audio:', e);
+                    imgAltavoz.src = '/static/image/bocina.png'; // Vuelve a la imagen gris si hay un error
+                });
+            });
+        
+            document.addEventListener('keydown', function(event) {
+                if (event.keyCode === 32) { // Barra espaciadora
+                    if (ultimoAudio) {
+                        imgAltavoz.src = '/static/image/bocina_roja.png'; // Cambia a la imagen roja
+                        ultimoAudio.play().catch(e => {
+                            console.error('Error al reproducir el audio:', e);
+                            imgAltavoz.src = '/static/image/bocina.png'; // Vuelve a la imagen gris si hay un error
+                        });
+                    }
+                }
+            });
+        </script>
+        
+
+       
+    
+      
+
+        
+        
+</body>
+
+</html>

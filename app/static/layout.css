@@ -1,0 +1,197 @@
+body { 
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #292929;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding:0;
+  position:absolute;
+}
+
+.contenedor {
+  background-color: #292929;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 640px;
+  border-top: 40px solid #54A348; /* Borde superior de 1 píxel, color blanco */
+  border-bottom: 40px solid #54A348; /* Borde inferior de 1 píxel, color blanco */
+}
+
+button {
+  width: 20%;
+  height: 40px;
+  background-color: #b32020;
+  color: #ffffff;
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+  left: -40%;
+}
+
+.dropdown {
+  position: absolute  ;
+  display: inline-block;
+
+  
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #5A6268;
+  min-width: 206px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 0px;
+  left: -675px;
+  width: 209px;
+  border-radius: 10%;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a  {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #5A6268;
+  
+  
+}
+.opciones   {
+  background-color: #5A6268;
+  color: #ffffff;
+  width: 209px;
+  height: 50px;
+  top: 0px;
+  margin-left: -675px;
+  border: 2px solid #5A6268;
+  border-radius: 10px;
+  position: absolute; /* Asegúrate de que el botón tenga una posición absoluta */
+  font-family: 'Acme' sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.Refrescar button {
+  top: 61px;
+  
+  background-color: #5A6268;
+  border-radius: 10px;
+  border: 2px solid #5A6268;
+  width: 207px;
+  height:50px;
+  margin-left:-50px;
+  font-family: 'Acme' sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+  
+}
+
+.Apagar button {
+  top: 73px;
+  background-color: #5A6268;
+  border: 2px solid #5A6268;
+  border-radius: 10px;
+  width: 209px;
+  height:50px;  
+  margin-left:-50px;
+  font-family: 'Acme' sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+
+}
+
+.cuadrado {
+  width: 1365px;
+  height: 100px;
+  background-color: #3c4043;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  margin-top: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+
+label {
+  font-size: 18px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Acme' sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+
+}
+
+
+
+
+
+
+
+.custom-dropdown .dropdown-content a {
+  color: #ffffff;
+  font-family: 'Acme' sans-serif;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.custom-dropdown .custom-control.custom-switch {
+  margin-left: 90px; /* Cambia el valor según sea necesario */
+  position: relative;
+  width: 20px;
+
+}
+
+.custom-control.custom-switch .custom-control-input:checked + .custom-control-label::before {
+  background-color: #ffffff; /* Color blanco cuando está activado */
+  border-color: #000000; /* Borde negro cuando está activado */
+}
+
+.custom-control.custom-switch .custom-control-label::before {
+  background-color: #000000; /* Color negro cuando está desactivado */
+  border-color: #000000; /* Borde negro cuando está desactivado */
+}
+
+
+.imagen img {
+  position: absolute;
+  top: 30px; /* Puedes ajustar este valor según tus necesidades */
+  left: 17%;
+  border-radius: 10px; /* Redondea todos los bordes */
+  margin-top: 20px;
+  width: 840px;
+  height:420px;
+}
+
+.Bocina img{
+  position: absolute;
+  margin-top: 230px;
+  width: 100px;
+  height:100px;
+ 
+  right: 150px; 
+  height: 150;
+  
+
+}
